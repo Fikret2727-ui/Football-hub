@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Football Hub</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080d0b;color:white;font-family:Arial;padding-bottom:30px}
+header{padding:25px 18px;background:#111b14}
+h1{font-size:25px;margin:0}
+h1 span{color:#39e58a}
+header p{color:#9aaa9f}
+nav{display:flex;justify-content:space-around;background:#152019;padding:14px 2px;position:sticky;top:0}
+button{background:none;border:0;color:#aaa;padding:8px;font-size:12px}
+button.active{color:#39e58a}
+main{padding:18px}
+.card{background:#152019;border:1px solid #293c30;border-radius:14px;padding:17px;margin:12px 0}
+h2{font-size:19px}
+.match{display:flex;justify-content:space-between;align-items:center;text-align:center}
+.team{width:38%;font-weight:bold}
+.score{font-size:25px;font-weight:bold}
+.green{color:#39e58a}
+.muted{color:#9aaa9f;font-size:12px}
+.hidden{display:none}
+table{width:100%;text-align:center;border-collapse:collapse}
+td,th{padding:12px 3px;border-bottom:1px solid #293c30}
+th{color:#39e58a}
+</style>
+</head>
+<body>
+<header>
+<h1>⚽ FOOTBALL <span>HUB</span></h1>
+<p>Futbolun merkezi burada.</p>
+</header>
+<nav>
+<button class="active" onclick="page('home',this)">Ana Sayfa</button>
+<button onclick="page('matches',this)">Maçlar</button>
+<button onclick="page('table',this)">Puan Durumu</button>
+<button onclick="page('favorites',this)">Favoriler</button>
+</nav>
+<main>
+<section id="home">
+<h2>🔥 Öne Çıkan Maç</h2>
+<div class="card">
+<div class="match">
+<div class="team">⚫ Beşiktaş</div>
+<div><div class="score">2 - 1</div><span class="green">ÖRNEK SKOR</span></div>
+<div class="team">🔴 Galatasaray</div>
+</div>
+<p class="muted">Gösterim amaçlı örnek skor.</p>
+</div>
+<h2>📅 Yaklaşan Maçlar</h2>
+<div class="card">⚫ Beşiktaş <span class="muted">VS</span> 🔵 Trabzonspor</div>
+<div class="card">⚪ Real Madrid <span class="muted">VS</span> 🔴 Barcelona</div>
+</section>
+<section id="matches" class="hidden">
+<h2>⚽ Maçlar</h2>
+<div class="card">Beşiktaş - Galatasaray</div>
+<div class="card">Real Madrid - Barcelona</div>
+<div class="card">Liverpool - Arsenal</div>
+</section>
+<section id="table" class="hidden">
+<h2>🏆 Puan Durumu</h2>
+<div class="card">
+<table>
+<tr><th>#</th><th>Takım</th><th>O</th><th>P</th></tr>
+<tr><td>1</td><td>Beşiktaş</td><td>10</td><td>25</td></tr>
+<tr><td>2</td><td>Galatasaray</td><td>10</td><td>23</td></tr>
+<tr><td>3</td><td>Fenerbahçe</td><td>10</td><td>21</td></tr>
+<tr><td>4</td><td>Trabzonspor</td><td>10</td><td>19</td></tr>
+</table>
+<p class="muted">Örnek puanlar.</p>
+</div>
+</section>
+<section id="favorites" class="hidden">
+<h2>⭐ Favorilerim</h2>
+<div class="card">⚫ Beşiktaş</div>
+</section>
+</main>
+<script>
+function page(id,btn){
+document.querySelectorAll('main section').forEach(s=>s.classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+}
+</script>
+</body>
+</html>
